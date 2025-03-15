@@ -2,33 +2,59 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+
 on:
   push:
     branches:
       - master
+
 jobs:
-  build_and_deploy:
+  build:
+    name: Build Project
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Set up pnpm
         uses: pnpm/action-setup@v2
         with:
           version: '10.5.2'
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20.18.3'
           cache: 'pnpm'
-          
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-  
+
       - name: Build project
         run: pnpm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: out # Ensure this is the correct build output directory
+
+  deploy:
+    name: Deploy to Firebase Hosting
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: out # Ensure this is the correct path
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NEXTJS_74599 }}
