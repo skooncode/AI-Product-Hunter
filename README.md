@@ -13,7 +13,7 @@ Product Hunter AI is an innovative platform designed to help users discover the 
 
 ## Demo
 
-Check out the live demo: [Product Hunter AI Demo](https://your-demo-link.com)
+Check out the live demo: [Product Hunter AI Demo](https://nextjs-74599.web.app)
 
 ## Table of Contents
 
