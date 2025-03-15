@@ -44,6 +44,3 @@
     @apply bg-gray-50;
   }
   
-  .crypto-symbol {
-    @apply w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3;
-  }

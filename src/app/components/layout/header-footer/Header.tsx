@@ -13,7 +13,6 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ 
   navItems = [
     { label: 'Home', href: '/' },
-    { label: 'Crypto', href: '/crypto' },
     { label: 'About', href: '/about' }
   ] 
 }) => {
