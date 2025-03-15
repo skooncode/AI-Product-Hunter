@@ -1,0 +1,26 @@
+# Settings for Backend (on Cloud Run).
+# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
+runConfig:
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 100
+  cpu: 1
+  memoryMiB: 512
+  timeoutSeconds: 60
+
+# Environment variables and secrets.
+env:
+  - variable: NODE_ENV
+    value: production     # Set NODE_ENV to production
+    availability:
+      - BUILD             # Available during build
+      - RUNTIME           # Available during runtime
+  # - variable: NEXT_PUBLIC_API_URL
+  #   value: https://api.example.com  # Public env var for client-side use
+  #   availability:
+  #     - BUILD
+  #     - RUNTIME
+  # - variable: DATABASE_URL
+  #   secret: db-url-secret  # Sensitive env var stored as a secret
+  #   availability:
+  #     - RUNTIME
