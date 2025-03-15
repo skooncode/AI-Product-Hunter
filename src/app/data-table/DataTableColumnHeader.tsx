@@ -1,6 +1,5 @@
 import React from 'react';
 import { Column } from '@tanstack/react-table';
-import { LuChevronDown, LuChevronUp, LuChevronsUpDown } from 'react-icons/lu';
 
 interface DataTableColumnHeaderProps<TData, TValue> {
   column: Column<TData, TValue>;
@@ -8,7 +7,6 @@ interface DataTableColumnHeaderProps<TData, TValue> {
 }
 
 export function DataTableColumnHeader<TData, TValue>({
-  column,
   title,
 }: DataTableColumnHeaderProps<TData, TValue>) {
   return (
