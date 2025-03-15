@@ -1,5 +1,7 @@
 # Product Hunter AI
 
+![product-hunter-ai](https://github.com/user-attachments/assets/0b5f3c1d-db49-495c-bc79-2161ab0c8972)
+
 Product Hunter AI is an innovative platform designed to help users discover the latest and most popular AI tools and applications. Leveraging advanced artificial intelligence, it curates and recommends AI products tailored to your interests and needs.
 
 ## Features
